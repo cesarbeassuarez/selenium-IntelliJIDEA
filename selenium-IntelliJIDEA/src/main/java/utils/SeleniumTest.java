@@ -1,8 +1,8 @@
-package org.example;
+package utils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.service.DriverService;
+
 import java.time.Duration;
 
 public class SeleniumTest {
@@ -22,6 +22,9 @@ public class SeleniumTest {
         System.out.println("Título de la página: " + driver.getTitle());
 
         // Cerrar el navegador
-        driver.quit();
+        // driver.quit();
     }
 }
+
+
+//https://demo.serenity.is/Account/Login/?ReturnUrl=%2F
