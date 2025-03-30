@@ -21,19 +21,19 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class PropertiesReader {
-    private static Properties properties;
+    private static Properties properties = new Properties();
 
     static {
         try {
-            properties = new Properties();
             FileInputStream file = new FileInputStream("src/main/resources/config.properties");
             properties.load(file);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException("No se pudo cargar config.properties", e);
         }
     }
 
-    public static String getProperty(String key) {
+    public static String get(String key) {
         return properties.getProperty(key);
     }
 }
+
