@@ -1,11 +1,11 @@
 package utils;
 
-import org.apache.poi.ss.usermodel.*;
+//import org.apache.poi.ss.usermodel.*;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class ExcelReader {
+/* public class ExcelReader {
     public static String leerDato(String rutaArchivo, int fila, int columna) {
         try {
             FileInputStream file = new FileInputStream(new File(rutaArchivo));
@@ -21,3 +21,4 @@ public class ExcelReader {
         }
     }
 }
+*/

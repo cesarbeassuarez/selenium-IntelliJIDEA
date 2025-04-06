@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite Login">
+
+    <!-- Este test ejecuta exclusivamente la clase del módulo de Login -->
+    <test name="Tests de Login">
+        <classes>
+
+            <!-- Clase que contiene los tests de login -->
+            <class name="login.LoginTests"/>
+
+        </classes>
+    </test>
+
+</suite>

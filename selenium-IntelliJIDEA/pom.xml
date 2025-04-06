@@ -22,6 +22,13 @@
             <version>4.10.0</version>
         </dependency>
 
+        <!-- Allure Core -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.21.0</version>
+        </dependency>
+
         <!-- WebDriver Manager (opcional, facilita el uso de drivers como ChromeDriver) -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
@@ -35,7 +42,25 @@
             <version>2.0.7</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.9.0</version>
+            <scope>compile</scope>
+        </dependency>
+
     </dependencies>
+
+    <build>
+        <!-- Allure Report Plugin -->
+        <plugins>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.11.2</version>
+            </plugin>
+        </plugins>
+    </build>
 
 
 </project>
