@@ -6,6 +6,10 @@ import org.testng.annotations.*;
 import config.WebDriverManager;
 import config.PropertiesReader;
 import io.qameta.allure.*;
+import utils.DriverManager;
+import listeners.TestExecutionControl;
+import org.testng.SkipException;
+import base.BaseTest;
 
 @Epic("Login")
 @Feature("Validaciones del formulario de inicio de sesión")
@@ -21,6 +25,10 @@ public class LoginTests {
     @BeforeClass
     public void setup() {
         driver = WebDriverManager.getDriver();
+        DriverManager.setDriver(driver);
+        if (TestExecutionControl.shouldStop) {
+            throw new SkipException("🛑 Ejecución detenida por fallo previo.");
+        }
 
         // Asignar a las variables de clase
         url = PropertiesReader.get("base.url");

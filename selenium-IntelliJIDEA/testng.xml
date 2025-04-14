@@ -1,6 +1,12 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <!--  suite completa (todos los prjs) -->
-<suite name="SuiteCompleta">
+<suite name="SuiteCompleta" verbose="1">
+
+    <!-- 🎧 Listener que frena ejecución al fallar un test -->
+    <listeners>
+        <listener class-name="listeners.StopOnFailureListener"/>
+    </listeners>
+
     <test name="Login">
         <classes>
             <class name="login.LoginTests"/>

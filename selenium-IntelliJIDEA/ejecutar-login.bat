@@ -56,25 +56,7 @@ if %errorlevel% neq 0 (
 
 allure generate allure-results --clean -o %outputDir%
 
-if exist %outputDir%\index.html (
-    echo ✅ Reporte generado correctamente en %outputDir%
-    start %outputDir%\index.html
-) else (
-    echo ❌ ERROR: No se generó el reporte HTML
-    echo Verifica que haya archivos en allure-results y que Allure esté bien instalado.
-)
-
-pause
-
 echo.
-echo =====================================
-echo  Abriendo reporte en el navegador
-echo =====================================
-echo.
-
-start %outputDir%\index.html
-
-echo.
-echo Reporte generado en: %outputDir%
+echo ✅ Reporte generado en: %outputDir%
 pause
 endlocal

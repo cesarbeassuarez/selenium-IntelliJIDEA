@@ -1,7 +1,0 @@
-"BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
-"1","Login","0","Validaciones del formulario de inicio de sesión","0","0","Usuario incorrecto","0"
-"0","Login","1","Validaciones del formulario de inicio de sesión","0","0","Inicio de sesión exitoso","0"
-"1","Login","0","Validaciones del formulario de inicio de sesión","0","0","Solo usuario cargado","0"
-"1","Login","0","Validaciones del formulario de inicio de sesión","0","0","Campos vacíos","0"
-"1","Login","0","Validaciones del formulario de inicio de sesión","0","0","Password incorrecta","0"
-"1","Login","0","Validaciones del formulario de inicio de sesión","0","0","Solo contraseña cargada","0"
