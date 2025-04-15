@@ -10,10 +10,13 @@ import utils.DriverManager;
 import listeners.TestExecutionControl;
 import org.testng.SkipException;
 import base.BaseTest;
+import org.testng.annotations.AfterClass;
+import utils.AllureReportGenerator;
 
 @Epic("Login")
 @Feature("Validaciones del formulario de inicio de sesión")
-public class LoginTests {
+@Listeners(listeners.StopOnFailureListener.class)
+public class LoginTests extends BaseTest{
     WebDriver driver;
     LoginActions login;
 
@@ -98,6 +101,11 @@ public class LoginTests {
     public void LoginSoloPassword(){
         login.ingresarCredenciales("",password);
         login.verificarMensajeError("Error de validación: ¡Nombre de usuario o contraseña inválidos!");
+    }
+
+    @AfterSuite
+    public void generarReporteLogin() {
+        AllureReportGenerator.generarReporte("login");
     }
 
     /*
