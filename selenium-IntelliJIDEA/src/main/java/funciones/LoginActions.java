@@ -26,8 +26,8 @@ public class LoginActions {
     // Login usando credenciales desde config.properties
     @Step("Login con credenciales por defecto")
     public void loginConCredencialesPorDefecto() {
-        String username = PropertiesReader.get("login.username");
-        String password = PropertiesReader.get("login.password");
+        String username = PropertiesReader.getProperty("login.username");
+        String password = PropertiesReader.getProperty("login.password");
 
         loginPage.enterUsername(username);
         loginPage.enterPassword(password);

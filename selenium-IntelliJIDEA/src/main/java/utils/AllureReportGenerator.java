@@ -13,30 +13,19 @@ public class AllureReportGenerator {
                 .format(DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm"));
         String outputDir = "reportes/" + modulo + "_" + fechaHora;
 
-        String comando = "cmd.exe /c allure generate allure-results --clean -o " + outputDir;
+        String comandoGenerar = "cmd.exe /c allure generate allure-results --clean -o " + outputDir;
+        String comandoAbrir = "cmd.exe /c start \"\" allure open \"" + outputDir + "\"";
 
         try {
-            System.out.println("🛠️ Ejecutando: " + comando);
-            Process proceso = Runtime.getRuntime().exec(comando);
+            System.out.println("🛠️ Generando log Allure en: " + outputDir);
+            Process generar = Runtime.getRuntime().exec(comandoGenerar);
+            generar.waitFor();
 
-            // Leer salida para debug
-            BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(proceso.getInputStream())
-            );
-            String linea;
-            while ((linea = reader.readLine()) != null) {
-                System.out.println("▶ " + linea);
-            }
-
-            int exitCode = proceso.waitFor();
-            if (exitCode == 0) {
-                System.out.println("✅ Reporte generado en: " + outputDir);
-            } else {
-                System.out.println("❌ Error. Código de salida: " + exitCode);
-            }
+            System.out.println("✅ Log generado. Abriendo reporte...");
+            Process abrir = Runtime.getRuntime().exec(comandoAbrir);
 
         } catch (IOException | InterruptedException e) {
-            System.out.println("❌ Excepción al generar el reporte: " + e.getMessage());
+            System.out.println("❌ Error al generar o abrir el log: " + e.getMessage());
         }
     }
 }

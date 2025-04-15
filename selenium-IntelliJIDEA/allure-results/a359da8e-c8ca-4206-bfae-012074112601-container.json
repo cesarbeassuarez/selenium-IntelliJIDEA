@@ -1,1 +1,0 @@
-{"uuid":"a359da8e-c8ca-4206-bfae-012074112601","name":"Default Suite","children":["c108bbad-41e5-440d-8879-2e4791c552a1"],"befores":[],"afters":[{"name":"generarReporteLogin","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1744683201807,"stop":1744683205522}],"start":1744683194173,"stop":1744683205522}

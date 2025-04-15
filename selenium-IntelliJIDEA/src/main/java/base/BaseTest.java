@@ -10,8 +10,8 @@ public class BaseTest {
 
     @BeforeMethod(alwaysRun = true)
     public void verificarFalloAnterior(Method metodo) {
-        if (TestExecutionControl.shouldStop) {
-            System.out.println("⏭️ Test '" + metodo.getName() + "' salteado por fallo anterior.");
+        if (TestExecutionControl.enabled && TestExecutionControl.shouldStop) {
+            System.out.println("⏭ Test '" + metodo.getName() + "' salteado por fallo anterior.");
             throw new SkipException("❌ Se detiene ejecución por fallo previo.");
         }
     }

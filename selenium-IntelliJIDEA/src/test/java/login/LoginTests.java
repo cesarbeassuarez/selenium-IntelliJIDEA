@@ -34,9 +34,9 @@ public class LoginTests extends BaseTest{
         }
 
         // Asignar a las variables de clase
-        url = PropertiesReader.get("base.url");
-        username = PropertiesReader.get("login.username");
-        password = PropertiesReader.get("login.password");
+        url = PropertiesReader.getProperty("base.url");
+        username = PropertiesReader.getProperty("login.username");
+        password = PropertiesReader.getProperty("login.password");
 
         driver.get(url);
         login = new LoginActions(driver);
