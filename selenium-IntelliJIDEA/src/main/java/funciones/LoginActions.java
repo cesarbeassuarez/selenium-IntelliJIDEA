@@ -1,8 +1,12 @@
 package funciones;
 
 import config.PropertiesReader;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.LoginPage;
 import pages.DashBoardPage;
 import org.testng.annotations.Test;
@@ -10,6 +14,8 @@ import org.testng.Assert;
 
 import utils.CommonActions;
 import io.qameta.allure.Step;
+
+import java.time.Duration;
 
 
 public class LoginActions {
@@ -44,7 +50,21 @@ public class LoginActions {
 
     @Step("Verificar que el Dashboard está visible")
     public void verificarDashboardVisible() {
-        Assert.assertTrue(driver.getCurrentUrl().contains("Dashboard"), "No se redirigió al Dashboard correctamente");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        Thread.sleep(10000);
+        wait.until(webDriver -> {
+            try{
+                driver.findElement(new By.ByCssSelector("sds"));
+                return true;
+            }
+            catch(Exception e) {
+                return false;
+            }
+        });
+        driver.findElement(new By.ByCssSelector("sds")).click();
+
+        boolean redirigido = wait.until(ExpectedConditions.urlContains("Dashboard"));
+        Assert.assertTrue(redirigido, "No se redirigió al Dashboard correctamente");
     }
 
     @Step("Verificar mensaje de error: se espera '{0}'")

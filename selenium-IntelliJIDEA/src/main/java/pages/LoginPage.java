@@ -7,10 +7,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.time.Duration;
 import io.qameta.allure.Step;
+import utils.DriverManager;
 
 
 public class LoginPage {
-    WebDriver driver;
+    DriverManager driverManager;
 
     // Locators (identificadores de los elementos de la página)
     private By usernameField = By.cssSelector("div.field.Username input[name='Username']");
@@ -20,14 +21,14 @@ public class LoginPage {
     //private By sad = By.cssSelector("input[id='s2id_autogen3']");
 
     // Constructor
-    public LoginPage(WebDriver driver) {
-        this.driver = driver;
+    public LoginPage(DriverManager driverManager) {
+        this.driver = driverManager;
     }
  
     // Acciones sobre la página
     @Step("Ingresar usuario: {username}")
     public void enterUsername(String username) {
-        driver.findElement(usernameField).clear();
+        driverManager.findElement(usernameField).clear();
         driver.findElement(usernameField).sendKeys(username);
     }
 
