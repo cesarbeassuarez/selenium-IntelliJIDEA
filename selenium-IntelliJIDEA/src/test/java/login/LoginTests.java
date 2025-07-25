@@ -9,15 +9,15 @@ import io.qameta.allure.*;
 import utils.DriverManager;
 import listeners.TestExecutionControl;
 import org.testng.SkipException;
-import base.BaseTest;
-import org.testng.annotations.AfterClass;
+import base.Base;
 import utils.AllureReportGenerator;
+import org.openqa.selenium.chrome.ChromeDriver;
+
 
 @Epic("Login")
 @Feature("Validaciones del formulario de inicio de sesión")
 @Listeners(listeners.StopOnFailureListener.class)
-public class LoginTests extends BaseTest{
-    WebDriver driver;
+public class LoginTests extends Base {
     LoginActions login;
 
     // Test data
@@ -25,9 +25,14 @@ public class LoginTests extends BaseTest{
     String username;
     String password;
 
+    public LoginTests(WebDriver driver) {
+        super(driver);
+    }
+
     @BeforeClass
     public void setup() {
-        driver = WebDriverManager.getDriver();
+        WebDriverManager.Chromedriver().setup();
+        driver = new ChromeDriver(); // ✅ Esto crea el WebDriver
         DriverManager.setDriver(driver);
         if (TestExecutionControl.shouldStop) {
             throw new SkipException("🛑 Ejecución detenida por fallo previo.");
@@ -39,7 +44,9 @@ public class LoginTests extends BaseTest{
         password = PropertiesReader.getProperty("login.password");
 
         driver.get(url);
-        login = new LoginActions(driver);
+
+        // Ahora LoginActions no necesita WebDriver porque lo obtiene desde DriverManager
+        login = new LoginActions();
     }
 
     // 1 Login correcto

@@ -3,7 +3,6 @@
 
     <test name="Tests de Login">
         <classes>
-            <class name="config.TestConfig"/>
             <!-- Clase que contiene los tests de login -->
             <class name="login.LoginTests"/>
 

@@ -33,4 +33,17 @@ public class CommonActions {
     public static byte[] capturarPantallaAllure(WebDriver driver) {
         return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
+
+    /**
+     * Verifica si un elemento está presente y visible en pantalla
+
+    public static boolean existeElemento(WebDriver driver, By by) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+            return true;
+        } catch (TimeoutException | NoSuchElementException e) {
+            return false;
+        }
+    }*/
 }
